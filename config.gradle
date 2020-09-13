@@ -1,0 +1,34 @@
+ext {
+    android = [
+            compileSdkVersion: 29,
+            buildToolsVersion: '30.0.2',
+            minSdkVersion    : 16,
+            targetSdkVersion : 29,
+            versionCode      : 1,
+            versionName      : '1.0',
+            compileSdkVersion: 29,
+            is_applicaion :true
+    ]
+
+    dependencies = [
+            publicimplementation :[
+                    'androidx.appcompat:appcompat:1.2.0',
+                    'androidx.constraintlayout:constraintlayout:2.0.1'
+            ],
+            publictestImplementation :[
+                    'junit:junit:4.12'
+            ],
+            publicandroidTestImplementation :[
+                    'androidx.test.ext:junit:1.1.2',
+                    'androidx.test.espresso:espresso-core:3.3.0'
+            ],
+
+            publicfileTree :fileTree(dir: "libs", include: ["*.jar"]),
+
+            commonlibrry :[
+                   path : ':common',
+                   path : ':basic'
+           ]
+    ]
+
+}

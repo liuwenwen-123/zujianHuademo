@@ -1,0 +1,6 @@
+include ':basic'
+include ':common'
+include ':member'
+include ':login'
+include ':app'
+rootProject.name = "ZujianDemo"

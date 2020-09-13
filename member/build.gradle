@@ -1,0 +1,54 @@
+if(rootProject.ext.android.is_applicaion){
+    apply plugin: 'com.android.application'
+}else{
+    apply plugin: 'com.android.library'
+}
+
+android {
+
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        if(rootProject.ext.android.is_applicaion){
+            applicationId "com.example.member"
+        }
+
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+//  sourceSets    设置 加载的文件路径
+    sourceSets{
+        main{
+            if(rootProject.ext.android.is_applicaion){
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java.srcDir 'src/main/module' // 这个组件是 applcation 时 将 module 文件夹 设置为  java文件
+            }else{
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation  rootProject.ext.dependencies.publicfileTree
+    implementation rootProject.ext.dependencies.publicimplementation
+    implementation project(rootProject.ext.dependencies.commonlibrry)
+    testImplementation rootProject.ext.dependencies.publictestImplementation
+    androidTestImplementation rootProject.ext.dependencies.publicandroidTestImplementation
+
+}
