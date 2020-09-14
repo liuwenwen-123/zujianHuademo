@@ -1,28 +1,29 @@
-package com.example.zujiandemo;
+package com.example.login;
 
+import androidx.annotation.BinderThread;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.annotation.BindPath;
+import com.example.basic.BaseActivity;
 import com.example.router.Arouter;
 
 
-@BindPath("main/main")
-public class MainActivity extends AppCompatActivity {
+
+@BindPath("login/login2")
+public class Login2Activity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_login_b);
     }
 
-    public  void login(View view){
-        Log.e("aaaaa MainActivity","11111");
+    public  void  toone(View view){
         Arouter.gerInstance().jumpActivity("login/login",null);
     }
+
+
 }

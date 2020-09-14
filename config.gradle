@@ -25,10 +25,27 @@ ext {
 
             publicfileTree :fileTree(dir: "libs", include: ["*.jar"]),
 
-            commonlibrry :[
-                   path : ':common',
-                   path : ':basic'
-           ]
-    ]
+//            2种方式 依赖 公共库
+           commonlibrry :[
+                    ':common',
+                    ':basic',
+                    ':router',
+                    ':annotation'
 
+           ]
+
+           /* commonlibrry :[
+                    path : ':common',
+                    path : ':basic',
+                    path : ':annotation'
+
+            ],*/
+           /* zhujielibrry :[
+                    path : ':router',
+
+            ]*/
+
+
+    ]
+//              path : ':annotation',         //依赖 注解
 }

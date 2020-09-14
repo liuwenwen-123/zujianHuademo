@@ -16,8 +16,12 @@ android {
 
     buildTypes {
         release {
+            buildConfigField("boolean", "is_applicaion", rootProject.ext.android.is_applicaion.toString() )
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug{
+
         }
     }
 }
@@ -25,8 +29,11 @@ android {
 dependencies {
     implementation  rootProject.ext.dependencies.publicfileTree
     implementation rootProject.ext.dependencies.publicimplementation
-    implementation project(rootProject.ext.dependencies.commonlibrry)
+//    implementation project(path: ':annotation')
 
+//    testImplementation rootProject.ext.dependencies.zhujielibrry
+    // 依赖注解 处理器
+    annotationProcessor  project(path: ':annotation_compiler')
 
     testImplementation rootProject.ext.dependencies.publictestImplementation
     androidTestImplementation rootProject.ext.dependencies.publicandroidTestImplementation
@@ -34,4 +41,11 @@ dependencies {
         implementation project(path : ':login')
         implementation project(path : ':member')
     }
+
+//        implementation project(rootProject.ext.dependencies.commonlibrry)
+    rootProject.ext.dependencies.commonlibrry.each{
+        implementation project(it)
+    }
+
+
 }

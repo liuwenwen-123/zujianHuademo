@@ -49,9 +49,21 @@ android {
 dependencies {
     implementation  rootProject.ext.dependencies.publicfileTree
     implementation rootProject.ext.dependencies.publicimplementation
-    implementation project(rootProject.ext.dependencies.commonlibrry)
+//    implementation project(path: ':arouter')
+
+    //    依赖注解 处理器
+    annotationProcessor  project(path: ':annotation_compiler')
+
+
     testImplementation rootProject.ext.dependencies.publictestImplementation
     androidTestImplementation rootProject.ext.dependencies.publicandroidTestImplementation
+
+
+//    implementation project(rootProject.ext.dependencies.commonlibrry)
+    rootProject.ext.dependencies.commonlibrry.each{
+        implementation project(it)
+    }
+
 
 
 }

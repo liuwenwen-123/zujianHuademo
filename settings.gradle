@@ -1,3 +1,6 @@
+include ':router'
+include ':annotation_compiler'
+include ':annotation'
 include ':basic'
 include ':common'
 include ':member'

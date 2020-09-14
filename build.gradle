@@ -3,6 +3,7 @@
 apply from: "config.gradle"
 buildscript {
     repositories {
+
         google()
         jcenter()
     }
@@ -16,6 +17,7 @@ buildscript {
 
 allprojects {
     repositories {
+
         google()
         jcenter()
     }
